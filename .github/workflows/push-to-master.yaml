@@ -36,4 +36,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: jfrossetto/orderapi:latest
+          tags: jfrossetto/orderapi:001
