@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "f5796e7a-2d41-4d06-bc76-1196409e15f9",
+		"name": "mglu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3352355"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token-api",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "recordType",
+							"value": "orderRecord",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/jfr/work/java/mglu/data_1.txt"
+						}
+					]
+				},
+				"url": "localhost:8080/v1/upload"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders by filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token-api",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "recordType",
+							"value": "orderRecord",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/jfr/work/java/mglu/data_1.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/v1/order/orders?endOrderDate=2021-04-01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"order",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "startOrderDate",
+							"value": "2021-10-01",
+							"disabled": true
+						},
+						{
+							"key": "endOrderDate",
+							"value": "2021-04-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token-api",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "recordType",
+							"value": "orderRecord",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/jfr/work/java/mglu/data_1.txt"
+						}
+					]
+				},
+				"url": "localhost:8080/v1/order/492"
+			},
+			"response": []
+		}
+	]
+}
