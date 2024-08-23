@@ -1,4 +1,4 @@
-package br.com.mglu.orderapi.updaload;
+package br.com.mglu.orderapi.upload;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +20,7 @@ import java.util.UUID;
 public class UploadService {
 
     private static final String BUCKET_NAME = "mglu-orders";
+    private static final String NAME_PREFIX = "data_";
 
     private final S3Client s3Client;
 
@@ -36,11 +37,11 @@ public class UploadService {
 
     private void uploadToS3(UUID uuidFile, String recordType, ByteBuffer file) {
         Map<String, String> metadata = Map.of("record-type", recordType);
-
+        String key = NAME_PREFIX.concat(uuidFile.toString());
         PutObjectRequest request = PutObjectRequest.builder()
                 .metadata(metadata)
                 .bucket(BUCKET_NAME)
-                .key(uuidFile.toString())
+                .key(key)
                 .contentType("text/plain")
                 .contentLength(Long.valueOf(file.array().length))
                 .build();
