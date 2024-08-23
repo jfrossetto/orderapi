@@ -1,6 +1,6 @@
 package br.com.mglu.orderapi.api.v1.upload;
 
-import br.com.mglu.orderapi.updaload.UploadService;
+import br.com.mglu.orderapi.upload.UploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

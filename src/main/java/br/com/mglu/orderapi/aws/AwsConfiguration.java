@@ -8,6 +8,8 @@ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 
+import java.net.URI;
+
 @Configuration
 public class AwsConfiguration {
 
@@ -25,7 +27,7 @@ public class AwsConfiguration {
 
         Region awsRegion = Region.of(region);
         return S3Client.builder()
-                //.endpointOverride(URI.create("https://s3.localhost.localstack.cloud:4566"))
+                .endpointOverride(URI.create("https://s3.localhost.localstack.cloud:4566"))
                 .credentialsProvider(StaticCredentialsProvider.create(
                         AwsBasicCredentials.create(accessKey, secretKey)))
                 .region(awsRegion)
