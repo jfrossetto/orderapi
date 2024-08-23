@@ -22,12 +22,15 @@ public class AwsConfiguration {
     @Value("${aws.region}")
     private String region;
 
+    @Value("${s3.url}")
+    private String localstackUrl;
+
     @Bean
     public S3Client s3Client() {
 
         Region awsRegion = Region.of(region);
         return S3Client.builder()
-                .endpointOverride(URI.create("https://s3.localhost.localstack.cloud:4566"))
+                .endpointOverride(URI.create(localstackUrl))
                 .credentialsProvider(StaticCredentialsProvider.create(
                         AwsBasicCredentials.create(accessKey, secretKey)))
                 .region(awsRegion)
